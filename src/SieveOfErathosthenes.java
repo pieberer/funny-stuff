@@ -4,9 +4,9 @@ import java.io.IOException;
 import java.io.BufferedWriter;
 
 public class SieveOfErathosthenes {
-    static int max = 1000000000;
+    static int max = (int)Math.pow(2, 29) - 1;
     public static void main(String[] args) {
-        System.out.println("Initiating prime computation.");
+        System.out.println("Initiating prime computation for numbers below " + max);
         long startTime = System.nanoTime();
 
         int[] numberSet = new int[max - 1];
