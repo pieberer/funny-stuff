@@ -1,13 +1,15 @@
 import java.math.BigInteger;
-import java.util.ArrayList;
+import libraries.Timer;
 
 public class TrialDivision {
     public static void main(String[] args) {
+        Timer timer = new Timer();
+
         BigInteger number = new BigInteger("59842579175171731");
         System.out.println("Testing primality for the number " + number + " with the amount of digits " + number.toString().length() + ".");
         System.out.println("This process will need to have an iteration of at most " + number.sqrt().toString() + " iterations.");
 
-        long startTime = System.nanoTime();
+        timer.start();
 
         boolean primality = isPrime(number);
 
@@ -15,7 +17,7 @@ public class TrialDivision {
         System.out.println("The number " + number + " is " + primalityStr + ".");
 
         long endTime = System.nanoTime();
-        System.out.println("Process took " + ((endTime - startTime) / 1_000_000) + " milliseconds.");
+        System.out.println("Process took " + timer.quickRetrieve() + " milliseconds.");
     }
 
     static boolean isPrime(BigInteger num) {
